@@ -120,6 +120,22 @@ describe('path-loader (browser loaders)', function () {
           .then(done, done);
       });
 
+      describe('should support options.proxies', function () {
+        it('change location', function (done) {
+          pathLoader
+            .load('dummy.example.com', {
+              proxies: [
+                {test: /.*/, url: baseLocation + 'project.json'}
+              ]
+            })
+            .then(JSON.parse)
+            .then(function (json) {
+              assert.deepEqual(projectJson, json);
+            })
+            .then(done, done);
+        });
+      });
+
       describe('should support options.prepareRequest', function () {
         it('thrown error', function (done) {
           var expectedMessage = 'Thrown error';
