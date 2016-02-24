@@ -61,6 +61,7 @@
   },
   "dependencies": {
     "native-promise-only": "^0.8.1",
+    "es6-template-strings": "^2.0.0",
     "superagent": "^1.6.1"
   }
 }
